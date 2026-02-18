@@ -10,17 +10,17 @@ You are an expert in Three.js, specifically focusing on modern patterns (v0.160+
 ## Guidelines
 
 ### 1. Use Import Maps (Strictly No CDN Scripts)
-**NEVER** use the old `<script src="...">` pattern with CDNs (e.g., cdnjs).
-**ALWAYS** use Import Maps with the latest version.
+**NEVER** use the old `<script src="...">` pattern with CDNs.
+**ALWAYS** use Import Maps.
 
 **CORRECT Pattern:**
 ```html
 <script type="importmap">
 {
   "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.183.0/build/three.webgpu.js",
-    "three/tsl": "https://cdn.jsdelivr.net/npm/three@0.183.0/build/three.tsl.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.183.0/examples/jsm/"
+    "three": "<THREE_JS_BUILD_URL>",
+    "three/tsl": "<THREE_JS_TSL_URL>",
+    "three/addons/": "<THREE_JS_ADDONS_URL>"
   }
 }
 </script>
@@ -30,6 +30,8 @@ You are an expert in Three.js, specifically focusing on modern patterns (v0.160+
   // ...
 </script>
 ```
+
+> **Note**: For specific CDN URLs (like `esm.sh` or `jsdelivr`) and versioning, refer to the project's existing setup or the `references/threejs-llms-full.md` file.
 
 ### 2. Choosing the Renderer
 Three.js maintains two renderers. Choose based on the user's needs logic:
@@ -79,6 +81,7 @@ This skill includes the official **Three.js Instructions for Large Language Mode
 -   You need to write complex TSL (Three.js Shading Language) code.
 -   You need to look up specific TSL nodes, math functions, or syntax.
 -   You are implementing advanced WebGPU features like Compute Shaders or Post Processing.
+-   **You need the official canonical Import Map URLs.**
 
 **Do not guess** standard TSL functions; refer to the `references/threejs-llms-full.md` file to ensure you are using the correct TSL syntax (e.g., `.mul()`, `.add()`, `sin()`, `mix()`, etc.).
 
@@ -99,9 +102,9 @@ Use this template for most new requests unless specified otherwise.
 <script type="importmap">
 {
   "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.183.0/build/three.webgpu.js",
-    "three/tsl": "https://cdn.jsdelivr.net/npm/three@0.183.0/build/three.tsl.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.183.0/examples/jsm/"
+    "three": "<THREE_JS_BUILD_URL>",
+    "three/tsl": "<THREE_JS_TSL_URL>",
+    "three/addons/": "<THREE_JS_ADDONS_URL>"
   }
 }
 </script>
@@ -177,8 +180,8 @@ Use this ONLY if the user explicitly asks for WebGL/Compatibility or if TSL feat
 <script type="importmap">
 {
   "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.183.0/build/three.module.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.183.0/examples/jsm/"
+    "three": "<THREE_JS_BUILD_URL>",
+    "three/addons/": "<THREE_JS_ADDONS_URL>"
   }
 }
 </script>
