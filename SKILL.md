@@ -71,6 +71,17 @@ Always use the `Node` variants of materials when working with TSL/WebGPU:
 -   `MeshPhysicalNodeMaterial`
 -   `SpriteNodeMaterial`
 
+## Reference Documentation (CRITICAL)
+
+This skill includes the official **Three.js Instructions for Large Language Models** in the `references/` directory.
+
+**You MUST read `references/threejs-llms-full.md` when:**
+-   You need to write complex TSL (Three.js Shading Language) code.
+-   You need to look up specific TSL nodes, math functions, or syntax.
+-   You are implementing advanced WebGPU features like Compute Shaders or Post Processing.
+
+**Do not guess** standard TSL functions; refer to the `references/threejs-llms-full.md` file to ensure you are using the correct TSL syntax (e.g., `.mul()`, `.add()`, `sin()`, `mix()`, etc.).
+
 ## Complete Code Examples
 
 ### Modern WebGPU + TSL Scene (The Standard)
